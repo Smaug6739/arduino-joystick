@@ -1,22 +1,26 @@
-#include "joystick.h"
 #include <Arduino.h>
+#include "joystick.h"
+#include "config.h"
 
-int VRx2 = A0;
-int VRy2 = A1;
-int SW2 = 2;
+
 int xPosition = 0;
 int yPosition = 0;
 int SW_state = 0;
 int mapX = 0;
 int mapY = 0;
 
+// UP: 20
+// DOWN: 21
+// LEFT: 30
+// RIGHT: 31
+
 int getValue (){
   
   
 
-	xPosition = analogRead(VRx2);
-  yPosition = analogRead(VRy2);
-  SW_state = digitalRead(SW2);
+	xPosition = analogRead(VRx);
+  yPosition = analogRead(VRy);
+  SW_state = digitalRead(SW);
   mapX = map(xPosition, 0, 1023, -512, 512);
   mapY = map(yPosition, 0, 1023, -512, 512);
 

@@ -1,11 +1,5 @@
-#include "config.h"
 #include "joystick.h"
-// UP: 20
-// DOWN: 21
-// LEFT: 30
-// RIGHT: 31
-
-
+#include "config.h"
 
 void setup() {
   Serial.begin(9600); 

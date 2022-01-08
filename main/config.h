@@ -1,5 +1,5 @@
 #include <Arduino.h>
 
-int VRx = A0;
-int VRy = A1;
-int SW = 2;
+#define VRx (A0)
+#define VRy (A1)
+#define SW (2)
