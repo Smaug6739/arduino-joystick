@@ -9,35 +9,38 @@ int SW_state = 0;
 int mapX = 0;
 int mapY = 0;
 
-// UP: 20
-// DOWN: 21
-// LEFT: 30
-// RIGHT: 31
+// UP: 1
+// DOWN: 2
+// LEFT: 4
+// RIGHT: 8
 
 int getValue (){
-  
-  
 
+  // Read the joystick position
 	xPosition = analogRead(VRx);
   yPosition = analogRead(VRy);
   SW_state = digitalRead(SW);
+  // map the joystick position
   mapX = map(xPosition, 0, 1023, -512, 512);
   mapY = map(yPosition, 0, 1023, -512, 512);
-
-
   
   if(mapX > 100) {
-    return 20;
+    //UP
+    return 1;
   }
-  else if(mapX < -100) {
-    return 21;
+  if(mapX < -100) {
+    // DOWN
+   return 2;
   } 
+  if(mapY < -100) {
+    // LEFT
+    return 4;
+  }
   if(mapY > 100) {
-    return 31;
+    // RIGHT
+    return 8;
   }
-  else if(mapY < -100) {
-    return 30;
-  }
+
   return 0;
 }
 

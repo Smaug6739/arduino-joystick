@@ -12,6 +12,7 @@ void setup() {
 
 void loop() {
  
+  Serial.print("Value of joystick: ");
   Serial.println(getValue());
 
   delay(700);
